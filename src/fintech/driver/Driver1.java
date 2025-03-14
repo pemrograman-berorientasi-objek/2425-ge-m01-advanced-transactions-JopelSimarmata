@@ -19,10 +19,10 @@ public class Driver1 {
         ArrayList<Transaction> DaftarTransaction = new ArrayList<>();
         ArrayList<Integer> ListPrint = new ArrayList<>();
 
-        while(true){
+        while (true) {
             String command = scn.nextLine();
 
-            if(command.equalsIgnoreCase("---")){
+            if (command.equalsIgnoreCase("---")) {
                 break;
             }
             String[] splitcommand = command.split("#");
@@ -30,15 +30,14 @@ public class Driver1 {
 
             temp[0] = splitcommand[0];
 
-            if (temp[0].equals("show-account")){
+            if (temp[0].equals("show-account")) {
 
                 temp[1] = splitcommand[1];
 
                 sortTransactionsByDate(DaftarTransaction);
                 for(int i = 0; i < DaftarAccount.size();i++){
-                    
-                    DaftarAccount.get(i).displayAccount();
                     if(DaftarAccount.get(i).getAccountName().equals(temp[1])){
+                        DaftarAccount.get(i).displayAccount();
                         for(int j = 0; j < DaftarTransaction.size(); j++){
                             if(temp[1].equals(DaftarTransaction.get(j).getAccountName())){
                             if(DaftarAccount.get(i).getBalance() >0 ){
@@ -46,7 +45,6 @@ public class Driver1 {
                             }
                         }
                         }
-                        
                     }
                     
                 }
